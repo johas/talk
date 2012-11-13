@@ -1,6 +1,6 @@
 \documentclass[12pt,a4paper,english]{beamer}
 \usepackage{ucs}
-\usepackage[utf8x]{inputenc}%utf-8
+\usepackage[latin1]{inputenc}%utf-8 utf8x
 %\usepackage{lmodern}
 \usepackage{fontenc}%[T1]
 \usepackage{babel}%[T1]
@@ -39,6 +39,14 @@
 %  \tableofcontents
 %\end{frame}
 
+\section{Shcr\"odinger equation}
+\begin{frame}
+  \begin{equation}
+	H\Psi=E\Psi
+	\label{eq:scr}
+  \end{equation}
+
+\end{frame}
 
 \section{Periodicity and the Hamiltonian}
 
@@ -87,6 +95,29 @@
 %  \end{equation*} 
 \end{frame}
 
+\section{Plane waves and Gaussians}
+\begin{frame}
+  Plane waves
+  \begin{itemize}
+	\item A complete and orthonormal set.
+	\item Does not depend on the positions of the atoms in the unit cell.
+	\item Fast Fourier transforms are easy to program.
+	\item Forces on atoms are easy to compute
+	\item Plane waves do not suffer from basis set superposition error.
+	\item In practice we must use a finite set of plane waves, core states are thus described badly, must augment the basis set or use pseudo potentials.
+  \end{itemize}
+\end{frame}
+\begin{frame}
+  Gaussians
+  \begin{itemize}
+	\item Allows to describe accurately electronic distributions both in valence and the core region with a limited number of basis functions.
+	\item Allows a treatmen of both finite and infinite systems in one two or three dimensions.
+	\item Integrals can be done analytically.
+	\item Linear scaling
+  \end{itemize}
+\end{frame}
+
+
 %\section{Hartree Fock with Bloch functions}
 \begin{frame}
        For the moment only closed shell HF is implemented.\\
@@ -111,34 +142,34 @@ The $k$ dependency of the Fock matrix is given by the fourier transformation
 
 \end{frame}
 
-\begin{frame}[fragile]
-  \begin{itemize}
-	\item The connection with LSDalton is in the computation of the integrals 
-  which are all done in realspace.
-
-\item In the pbc code we loop over all lattice cells that are necessary in the 
-  fourier transform, and call the integrals in LSDalton.
-  \end{itemize}
-
-  A pseudo-code for the kinetic energy:
-
-\begin{lstlisting}
-DO index=1,num_latvectors
- call TYPEDEF_setmolecules(setting,refcell,1,&
- &                        latt_cell(index),3)
-
- call II_get_kinetic(lupri,luerr,setting,kin)
-ENDDO
-\end{lstlisting}
-  
-  %The one-particle operator part is given by
-  %$$h_{\mu\nu}^{0j}=\braopket{\chi_{\mu}^0}{\hat h}{\chi_{\nu}^j}$$
-  %where the superscript $0$ indicates that the basis function has center in the   reference cell and $j$ that the basis function has center in the cell $j$.
-  
-
-
-
-\end{frame}
+%\begin{frame}[fragile]
+%  \begin{itemize}
+%	\item The connection with LSDalton is in the computation of the integrals 
+%  which are all done in realspace.
+%
+%\item In the pbc code we loop over all lattice cells that are necessary in the 
+%  fourier transform, and call the integrals in LSDalton.
+%  \end{itemize}
+%
+%  A pseudo-code for the kinetic energy:
+%
+%\begin{lstlisting}
+%DO index=1,num_latvectors
+% call TYPEDEF_setmolecules(setting,refcell,1,&
+% &                        latt_cell(index),3)
+%
+% call II_get_kinetic(lupri,luerr,setting,kin)
+%ENDDO
+%\end{lstlisting}
+%  
+%  %The one-particle operator part is given by
+%  %$$h_{\mu\nu}^{0j}=\braopket{\chi_{\mu}^0}{\hat h}{\chi_{\nu}^j}$$
+%  %where the superscript $0$ indicates that the basis function has center in the   reference cell and $j$ that the basis function has center in the cell $j$.
+%  
+%
+%
+%
+%\end{frame}
 
 %\section{PBC in LSDALTON}
 %\begin{frame}
