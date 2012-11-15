@@ -96,6 +96,30 @@
 %  \end{equation*} 
 \end{frame}
 
+%\section{Hartree Fock with Bloch functions}
+\begin{frame}
+
+	   The self consistent field equations are solved 
+	   for each $k$ value in the first Brillouin zone:
+		\begin{equation*}
+				F(k)C(k)=\varepsilon(k)S(k)C(k),
+		\end{equation*}
+
+		where
+		\begin{equation}
+		  F_{\mu\nu}(k)=h_{\mu\nu}(k)+J_{\mu\nu}(k) + K_{\mu\nu}(k)
+		  \label{eq:kspacefock}
+		\end{equation}
+
+
+\end{frame}
+
+%\begin{frame}[fragile]
+%  \begin{itemize}
+%	\item The connection with LSDalton is in the computation of the integrals 
+%  which are all done in realspace.
+%
+%\item In the pbc code we loop over all lattice cells that are necessary in the 
 \section{Plane waves and Gaussians}
 \begin{frame}
   Plane waves
@@ -118,17 +142,9 @@
   \end{itemize}
 \end{frame}
 
-
-%\section{Hartree Fock with Bloch functions}
 \begin{frame}
-       For the moment only closed shell HF is implemented.\\
-	   The self consistent field equations have to be solved 
-	   for each $k$ value in the first Brillouin zone:
-		\begin{equation*}
-				F(k)C(k)=\varepsilon(k)S(k)C(k)
-		\end{equation*}
 
-The $k$ dependency of the Fock matrix is given by the fourier transformation
+  Using Gaussians as basis functions the $k$ dependency of the Fock matrix is given by the fourier transformation
   \begin{equation}
 	F_{\mu\nu}(k)=\sum_{\mbf j}e^{ikj}F_{\mu\nu}^{0j},
 	   \label{hfbleq:totmatx2}
@@ -140,15 +156,15 @@ The $k$ dependency of the Fock matrix is given by the fourier transformation
 
 	 Each part of the fock matrix has first to be computed in real space.
 
+\end{frame}
+
+\section{Integrals}
+\begin{frame}
+  The bottleneck in the calculations are the two-body integrals, the coulomb part and the non local exchange. 
 
 \end{frame}
 
-%\begin{frame}[fragile]
-%  \begin{itemize}
-%	\item The connection with LSDalton is in the computation of the integrals 
-%  which are all done in realspace.
-%
-%\item In the pbc code we loop over all lattice cells that are necessary in the 
+
 %  fourier transform, and call the integrals in LSDalton.
 %  \end{itemize}
 %
