@@ -43,7 +43,7 @@
 \begin{frame}
   The Hamiltionian
   \begin{equation}
-	H= \sum_i \frac{nabla^2_i}{2} + \sum_{A}\frac{Z_A}{r-R_A}+\sum_{i>j}\frac{1}{r_{ij}}
+	H= \sum_i \frac{\nabla^2_i}{2} + \sum_{A}\frac{Z_A}{r-R_A}+\sum_{i>j}\frac{1}{r_{ij}}
 	\label{eq:ham}
   \end{equation}
 
@@ -59,6 +59,28 @@
    \mbf R_n= u\mbf t_1 + v\mbf t_2 + w\mbf t_3
  \end{equation*}
  $u,v~\mbox{and}~w\in \mathbb{Z}$
+%\end{frame}
+%
+%\begin{frame}
+\\ The vectors $\mbf t_i$ are three vectors defining the
+ basis of the space.
+ The parallelepiped formed by these three vectors is called the unit cell and
+ their direction define the crystallographic axes $X,~Y~\mbox{and}~Z$.
+\end{frame}
+
+%\section{Bravais lattices}
+
+\begin{frame}
+  There are collections of crystal classes which demand lattices of a given
+  symmetry. 
+  In three dimensions there are seven such systems.
+
+  \begin{figure}[htp]
+\centering
+\includegraphics[scale=0.3]{Bravais}
+\caption{The 14 different Bravais lattices and the 7 crystal systems.}
+\label{fig:bravais}
+\end{figure}
 \end{frame}
 
 \begin{frame}
@@ -158,9 +180,13 @@
 
 \end{frame}
 
-\section{Integrals}
-\begin{frame}
-  The bottleneck in the calculations are the two-body integrals, the coulomb part and the non local exchange. 
+\section{Integrals} \begin{frame} The bottleneck in the calculations are the
+        two-body integrals, the coulomb part and the non local exchange. \\
+
+        The Coulomb integral is speed up by the LSDALTON program using the 
+        j-engine algorithm. \\
+
+        And exact exchange by 
 
 \end{frame}
 
@@ -247,5 +273,16 @@
 %
 %\end{frame}
 
+\begin{frame}
+        \frametitle{Aknowledgements}
+
+        Trygve Helgaker\\
+        Simen Reine\\
+        Thomas Kj\ae rgaard\\
+        Erik Tellgren\\
+        %Thomas Bondo Pedersen
+
+        
+\end{frame}
 
 \end{document}
