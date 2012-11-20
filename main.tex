@@ -40,14 +40,14 @@
 %\end{frame}
 
 \section{Shcr\"odinger equation}
-\begin{frame}
-  The Hamiltionian
-  \begin{equation}
-	H= \sum_i \frac{\nabla^2_i}{2} + \sum_{A}\frac{Z_A}{r-R_A}+\sum_{i>j}\frac{1}{r_{ij}}
-	\label{eq:ham}
-  \end{equation}
-
-\end{frame}
+%\begin{frame}
+%  The Hamiltionian
+%  \begin{equation}
+%	H= \sum_i \frac{\nabla^2_i}{2} + \sum_{A}\frac{Z_A}{r-R_A}+\sum_{i>j}\frac{1}{r_{ij}}
+%	\label{eq:ham}
+%  \end{equation}
+%
+%\end{frame}
 
 \section{Periodicity and the Hamiltonian}
 
@@ -181,14 +181,47 @@
 
 \section{Integrals} \begin{frame} The bottleneck in the calculations are the
         two-body integrals, the coulomb part and the non local exchange. \\
-
+        \vspace{\baselineskip}
         The Coulomb integral is speed up in the LSDALTON program by using the 
         j-engine algorithm. \\
-
-        Exact exchange is computed using the LinK scheme. 
-
+        \vspace{\baselineskip}
+        The coulomb integral $J_{ab}$, written as a sum over primitive coulomb integrals
+        $J_{ab}=\sum_{ij}J_{[a_ib_j]}$
+                
+        \begin{equation}
+        \begin{split}
+                %&J_{ab}=\sum_{cd}(ab|cd)D_{cd}=\sum_{cd}\sum_{mnij}C_{mn}C_{ij}[a_mb_n|c_id_j]D_{cd}\\
+                %&=\sum_{cd}\sum_{mnij}\sum_{qr}C_{mn}C_{ij}E^{mn}_{q}E^{ij}_q[q|r]D_{cd}\\
+                %&=\sum_{mn}C_{mn}\sum_qE^{mn}_q\sum_r F^{ij}_{r}[q|r]
+                &J_{a_ib_j}=\sum_{mn}\rho^{c_md_n}[a_ib_j|c_md_n]\\
+                &=\sum_{p}E^p_{ab}\sum_{mn}\rho^{c_md_n}[p|c_md_n]\\
+                &=\sum_{p}E^p_{ab}\sum_{mn}\sum_q\rho^{c_md_n}E^q_{c_md_n}[p|q]\\
+        \end{split}
+                %&(ab|cd)=\sum_{mnij}C_{mn}C_{ij}[a_mb_n|c_id_j]D_{cd}\\
+                %&=\sum_{mnij}\sum_{qr}C_{mn}C_{ij}E^{mn}_{q}E^{ij}_q[q|r]\\
+                %&=\sum_{mn}C_{mn}\sum_qE^{mn}_q\sum_r F^{ij}_{r}[q|r]
+        \end{equation}
+\end{frame}
+\begin{frame}
+        The sum over $m$ and $n$ are independent of the integral and can be presummed with the conditions that $c_m$ and $d_n$ are belonging to the center $q$.
+        \begin{equation}
+                \begin{split}
+                        &[p|CD]=\sum_{mn}\rho^{c_md_n}[p|c_md_n]\\
+                        &=\sum_{mn}\sum_q\rho^{c_md_n}E^q_{c_md_n}[p|q]\\
+                        &=\sum_q\rho^q[p|q]
+                \end{split}
+                \label{}
+        \end{equation}
+        where
+        \begin{equation}
+                \rho^q=\sum_{mn}\rho^{c_md_n}E^q_{c_mc_n}
+                \label{}
+        \end{equation}
 \end{frame}
 
+%\begin{frame}
+%        Exact exchange is computed using the Linear exchange K, LinK, scheme. 
+%\end{frame}
 
 %  fourier transform, and call the integrals in LSDalton.
 %  \end{itemize}
