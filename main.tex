@@ -29,17 +29,18 @@
 \newcommand{\OP}[1]{{\bf\widehat{#1}}}
 
 
-\title{PBC and LSDALTON}
+\title{PBC in LSDALTON}
 \begin{document}
 \date{}
 %\author{Johannes Rekkedal}
 \frame{\titlepage}
 %\section{Outline}
-%\begin{frame}
-%  \tableofcontents
-%\end{frame}
+\begin{frame}
+        \frametitle{Outline}
+  \tableofcontents
+\end{frame}
 
-\section{Shcr\"odinger equation}
+%\section{Shcr\"odinger equation}
 %\begin{frame}
 %  The Hamiltionian
 %  \begin{equation}
@@ -226,25 +227,51 @@
 %  fourier transform, and call the integrals in LSDalton.
 %  \end{itemize}
 %
-%  A pseudo-code for the kinetic energy:
-%
-%\begin{lstlisting}
-%DO index=1,num_latvectors
-% call TYPEDEF_setmolecules(setting,refcell,1,&
-% &                        latt_cell(index),3)
-%
-% call II_get_kinetic(lupri,luerr,setting,kin)
-%ENDDO
-%\end{lstlisting}
-%  
-%  %The one-particle operator part is given by
-%  %$$h_{\mu\nu}^{0j}=\braopket{\chi_{\mu}^0}{\hat h}{\chi_{\nu}^j}$$
-%  %where the superscript $0$ indicates that the basis function has center in the   reference cell and $j$ that the basis function has center in the cell $j$.
-%  
-%
-%
-%
-%\end{frame}
+\begin{frame}[fragile]
+
+  A pseudo-code for the kinetic energy:
+
+\begin{lstlisting}
+DO index=1,num_latvectors
+ call TYPEDEF_setmolecules(setting,refcell,1,&
+ &                        latt_cell(index),3)
+
+ call II_get_kinetic(lupri,luerr,setting,kin)
+ENDDO
+\end{lstlisting}
+  
+  %The one-particle operator part is given by
+  %$$h_{\mu\nu}^{0j}=\braopket{\chi_{\mu}^0}{\hat h}{\chi_{\nu}^j}$$
+  %where the superscript $0$ indicates that the basis function has center in the   reference cell and $j$ that the basis function has center in the cell $j$.
+  
+
+
+
+\end{frame}
+\begin{frame}
+        \begin{table}
+                \centering
+                \begin{tabular}{|c|c|}
+                         Iteration & Total time for J and K (sec) \\
+\hline
+                         1 &  1.71\\ 
+                         2 &  2.48\\ 
+                         3 &  1.90\\ 
+                         4 &  1.91\\ 
+                         5 &  1.92\\ 
+                         6 &  1.71\\ 
+                         7 &  1.70\\ 
+                         8 &  1.70\\ 
+                         9 &  1.71\\ 
+                        10 &  1.71\\ 
+                        11 &  1.71\\ 
+                        12 &  1.71\\ 
+\hline
+                \end{tabular}
+                \caption{Total time for computation of J and K for water in a 6-31G** basis}
+                \label{tab:1}
+        \end{table}
+\end{frame}
 
 %\section{PBC in LSDALTON}
 %\begin{frame}
