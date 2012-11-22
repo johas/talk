@@ -202,7 +202,7 @@ ENDDO
 \end{frame}
 
 \section{Integrals} \begin{frame} The bottleneck in the calculations are the
-        two-body integrals, the coulomb part and the non local exchange. \\
+        two-body integrals. \\
         \vspace{\baselineskip}
         The Coulomb integral is speed up in the LSDALTON program by using the 
         j-engine algorithm. \\
@@ -216,8 +216,9 @@ ENDDO
                 %&=\sum_{cd}\sum_{mnij}\sum_{qr}C_{mn}C_{ij}E^{mn}_{q}E^{ij}_q[q|r]D_{cd}\\
                 %&=\sum_{mn}C_{mn}\sum_qE^{mn}_q\sum_r F^{ij}_{r}[q|r]
                 &J_{a_ib_j}=\sum_{mn}\rho^{c_md_n}[a_ib_j|c_md_n]\\
-                &=\sum_{p}E^p_{ab}\sum_{mn}\rho^{c_md_n}[p|c_md_n]\\
-                &=\sum_{p}E^p_{ab}\sum_{mn}\sum_q\rho^{c_md_n}E^q_{c_md_n}[p|q]\\
+                %&=\sum_{p}E^p_{ab}\sum_{mn}\rho^{c_md_n}[p|c_md_n]\\
+                &=\sum_{mn}\rho^{c_md_n}[a_ib_j|c_md_n]\\
+                &=\sum_{mn}\sum_q\rho^{c_md_n}E^q_{c_md_n}[a_ib_j|q]\\
         \end{split}
                 %&(ab|cd)=\sum_{mnij}C_{mn}C_{ij}[a_mb_n|c_id_j]D_{cd}\\
                 %&=\sum_{mnij}\sum_{qr}C_{mn}C_{ij}E^{mn}_{q}E^{ij}_q[q|r]\\
@@ -251,27 +252,38 @@ ENDDO
 \begin{frame}
         \begin{table}
                 \centering
-                \begin{tabular}{|c|c|}
-                         Iteration & Total time for J and K (sec) \\
+                \begin{tabular}{|c|c|c|c|}
+                         Iteration & K&J&Total time (sec) \\
 \hline
-                         1 &  1.71\\ 
-                         2 &  2.48\\ 
-                         3 &  1.90\\ 
-                         4 &  1.91\\ 
-                         5 &  1.92\\ 
-                         6 &  1.71\\ 
-                         7 &  1.70\\ 
-                         8 &  1.70\\ 
-                         9 &  1.71\\ 
-                        10 &  1.71\\ 
-                        11 &  1.71\\ 
-                        12 &  1.71\\ 
-\hline
+                         1 & 1.21 & 0.69 &1.71\\ 
+                         2 & 1.99 & 0.50 &2.48\\ 
+                         3 & 1.40 & 0.51 &1.90\\ 
+                         4 & 1.40 & 0.51 &1.91\\ 
+                         5 & 1.43 & 0.51 &1.92\\ 
+                         6 & 1.21 & 0.52 &1.71\\ 
+                         7 & 1.33 & 0.51 &1.70\\ 
+                         8 & 1.20 & 0.52 &1.70\\ 
+                         9 & 1.21 & 0.51 &1.71\\ 
+                        10 & 1.21 & 0.51 &1.71\\ 
+                        11 & 1.20 & 0.51 &1.71\\ 
+                        12 & 1.21 & 0.51 &1.71\\ 
                 \end{tabular}
                 \caption{Total time for computation of J and K for water in a 6-31G** basis}
                 \label{tab:1}
-        \end{table}
+        \end{table}          
 \end{frame}
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+   
 
 %\section{PBC in LSDALTON}
 %\begin{frame}
