@@ -179,6 +179,27 @@
 	 Each part of the fock matrix has first to be computed in real space.
 
 \end{frame}
+\begin{frame}[fragile]
+
+  A pseudo-code for the kinetic energy:
+
+\begin{lstlisting}
+DO index=1,num_latvectors
+ call TYPEDEF_setmolecules(setting,refcell,1,&
+ &                        latt_cell(index),3)
+
+ call II_get_kinetic(lupri,luerr,setting,kin)
+ENDDO
+\end{lstlisting}
+  
+  %The one-particle operator part is given by
+  %$$h_{\mu\nu}^{0j}=\braopket{\chi_{\mu}^0}{\hat h}{\chi_{\nu}^j}$$
+  %where the superscript $0$ indicates that the basis function has center in the   reference cell and $j$ that the basis function has center in the cell $j$.
+  
+
+
+
+\end{frame}
 
 \section{Integrals} \begin{frame} The bottleneck in the calculations are the
         two-body integrals, the coulomb part and the non local exchange. \\
@@ -227,27 +248,6 @@
 %  fourier transform, and call the integrals in LSDalton.
 %  \end{itemize}
 %
-\begin{frame}[fragile]
-
-  A pseudo-code for the kinetic energy:
-
-\begin{lstlisting}
-DO index=1,num_latvectors
- call TYPEDEF_setmolecules(setting,refcell,1,&
- &                        latt_cell(index),3)
-
- call II_get_kinetic(lupri,luerr,setting,kin)
-ENDDO
-\end{lstlisting}
-  
-  %The one-particle operator part is given by
-  %$$h_{\mu\nu}^{0j}=\braopket{\chi_{\mu}^0}{\hat h}{\chi_{\nu}^j}$$
-  %where the superscript $0$ indicates that the basis function has center in the   reference cell and $j$ that the basis function has center in the cell $j$.
-  
-
-
-
-\end{frame}
 \begin{frame}
         \begin{table}
                 \centering
