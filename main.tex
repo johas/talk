@@ -202,8 +202,11 @@ ENDDO
 \end{frame}
 
 \section{Integrals} \begin{frame} The bottleneck in the calculations are the
-        two-body integrals. \\
-        \vspace{\baselineskip}
+        two-body integrals. 
+        \begin{equation}
+                J_{ab}^{0l}=\sum_{cd}\sum_{jm}(a^0b^l|c^jd^{j+m})D_{cd}^{0m}
+        \end{equation}
+
         The Coulomb integral is speed up in the LSDALTON program by using the 
         j-engine algorithm. \\
         \vspace{\baselineskip}
